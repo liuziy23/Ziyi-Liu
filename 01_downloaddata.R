@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: covid19 cases
+# Purpose: Active Affordable and Social Housing Units
 # Author: Ziyi Liu
 # Email: jacqueline.liu@mail.utoronto.ca
 # Date: 23 January 2024
@@ -22,19 +22,20 @@ packages
 
 
 #### Acquire ####
-toronto_covid <- search_packages("covid")
-toronto_covid
-covid1 <- list_package_resources("64b54586-6180-4485-83eb-81e8fae3b8fe")
-  
-covid_file <- covid1 %>% 
-  filter(name == "COVID19 cases.csv") 
-  
-View(covid_file)
-covid_data <- get_resource(covid_file)
+toronto_housing <- search_packages("housing")
+toronto_housing
+housing1 <- list_package_resources("active-affordable-and-social-housing-units")
+housing1
+
+housing_file <- housing1 %>% 
+  filter(name == "Social and Affordable Housing.csv") 
+
+View(housing_file)
+housing_data <- get_resource(housing_file)
 
 write_csv(
-  x = toronto_covid,
-  file = "toronto_covid.csv"
+  x = toronto_housing,
+  file = "toronto_housing.csv"
 )
 
-head(toronto_covid)
+head(toronto_housing)
