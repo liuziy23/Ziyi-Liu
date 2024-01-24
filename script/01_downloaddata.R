@@ -1,8 +1,8 @@
 #### Preamble ####
-# Purpose: Get data on 2021 shelter usage and make table
-# Author: Rohan Alexander
-# Email: rohan.alexander@utoronto.ca
-# Date: 1 July 2022
+# Purpose: Active Affordable and Social Housing Units
+# Author: Ziyi Liu
+# Email: jacqueline.liu@mail.utoronto.ca
+# Date: 23 January 2024
 # Prerequisites: -
 
 #### Workspace setup ####
@@ -17,23 +17,26 @@ library(janitor)
 library(lubridate)
 library(opendatatoronto)
 library(tidyverse)
+packages <- list_packages(limit = 10)
+packages
 
 
 #### Acquire ####
-toronto_shelters <-
-  # Each package is associated with a unique id  found in the "For 
-  # Developers" tab of the relevant page from Open Data Toronto
-  # https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/
-  list_package_resources("21c83b32-d5a8-4106-a54f-010dbe49f6f2") |>
-  # Within that package, we are interested in the 2021 dataset
-  filter(name == 
-           "daily-shelter-overnight-service-occupancy-capacity-2021.csv") |>
-  # Having reduced the dataset to one row we can get the resource
-  get_resource()
+toronto_housing <- search_packages("housing")
+toronto_housing
+housing1 <- list_package_resources("active-affordable-and-social-housing-units")
+housing1
+
+housing_file <- housing1 %>% 
+  filter(name == "Social and Affordable Housing.csv") 
+
+View(housing_file)
+housing_data <- get_resource(housing_file)
 
 write_csv(
-  x = toronto_shelters,
-  file = "toronto_shelters.csv"
+  x = toronto_housing,
+  file = "toronto_housing.csv"
 )
 
-head(toronto_shelters)
+head(toronto_housing)
+                                                                                            
