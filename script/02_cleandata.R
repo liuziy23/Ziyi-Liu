@@ -1,20 +1,15 @@
 library(readr)
 library(dplyr)
 library(lubridate)
+library(tidyr)
 
-# Read the dataset
-toronto_housing_data <- read_csv("toronto_housing.csv")
+# Read the data
+data <- read.csv("toronto_bodysafe.csv")
 
-# Clean the data
-toronto_housing_data_cleaned <- toronto_housing_data %>%
-  select(-civic_issues) %>%
-  mutate(last_refreshed = ymd(last_refreshed))
+data_cleaned <- data %>% distinct()
 
-# View the cleaned data
-head(toronto_housing_data_cleaned)
+data_cleaned <- na.omit(data_cleaned)
 
-write_csv(
-  x = toronto_housing_data_cleaned,
-  file = "cleaned_toronto_housing.csv"
-)
+data_cleaned$insDate <- as.Date(data_cleaned$insDate)
 
+write.csv(data_cleaned, "toronto_bodysafe_cleaned.csv", row.names = FALSE)

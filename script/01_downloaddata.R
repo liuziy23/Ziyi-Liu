@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Active Affordable and Social Housing Units
+# Purpose: Toronto body safe
 # Author: Ziyi Liu
 # Email: jacqueline.liu@mail.utoronto.ca
 # Date: 23 January 2024
@@ -17,26 +17,21 @@ library(janitor)
 library(lubridate)
 library(opendatatoronto)
 library(tidyverse)
-packages <- list_packages(limit = 10)
+packages <- list_packages(limit = 50)
 packages
 
-
 #### Acquire ####
-toronto_housing <- search_packages("housing")
-toronto_housing
-housing1 <- list_package_resources("active-affordable-and-social-housing-units")
-housing1
-
-housing_file <- housing1 %>% 
-  filter(name == "Social and Affordable Housing.csv") 
-
-View(housing_file)
-housing_data <- get_resource(housing_file)
+toronto_bodysafe <-
+  list_package_resources("c4052ff7-a09d-4eaf-84e6-6669519f413d") |>
+  # Within that package, we are interested in the 2021 dataset
+  filter(name == 
+           "bodysafe - 4326.csv") |>
+  # Having reduced the dataset to one row we can get the resource
+  get_resource()
 
 write_csv(
-  x = toronto_housing,
-  file = "toronto_housing.csv"
+  x = toronto_bodysafe,
+  file = "toronto_bodysafe.csv"
 )
 
-head(toronto_housing)
-                                                                                            
+head(toronto_bodysafe)
