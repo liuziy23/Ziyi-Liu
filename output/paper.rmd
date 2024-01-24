@@ -4,7 +4,7 @@ author:
   - Ziyi Liu
 thanks: "Code and data are available at: https://github.com/liuziy23/Ziyi-Liu.git"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This paper delves into the multifaceted urban landscape of Toronto, focusing on the challenges and strategic responses linked with affordable and social housing.Toronto is one of the most populus and diverse cities in North Ameriva, it acts as a unique case study to examine urban housing dynamics. This research emoloys several dataset that p"
+abstract: "This paper delves into the multifaceted urban landscape of Toronto, focusing on the challenges and strategic responses linked with affordable and social housing.Toronto is one of the most populus and diverse cities in North America, it acts as a unique case study to examine urban housing dynamics. This research emoloys several dataset that include aspects such as affordable housing development, social housing waitlists and rental unit redevelopment. These findings reveal a complex housing landscape. The paper concludes with strategic recommendations for policy makers."
 output:
   bookdown::pdf_document2
 toc: TRUE
@@ -22,9 +22,7 @@ library(janitor)
 
 # Introduction
 
-As one of the busiest and most modern city in Canada, Toronto constantly faces a large number of citizens, and, inevitably, heavy traffic. The road condition in Toronto is busy most of the time. The vast majority of roads and buildings under construction that take place almost everywhere narrow the roadway of vehicles and turn off traffic lights [@cite4]. Heavy traffic is likely to be one of the main reasons behind car accidents, because it increases the road rage and encourages the vehicle drivers to make dangerous moves to save time. Vehicle collisions have always brought large financial costs to the involving parties, and even more, they even brought injuries and deaths. In just 2019, traffic accidents resulted in more than 1700 deaths and more than 140000 injuries [@cite1].
-
-The Motor Vehicle Collisions data of Toronto provides a record of the past severe vehicle collisions in Toronto which result in injuries or deaths, and with the help of statistical data analysis, it can possibly offer insights on the ways to reduce this type of accident. This report investigates the motor vehicle collisions in Toronto from 2006 to 2020, with a focus on the ones result in injuries or deaths. In Section \@ref(motor-vehicle-collisions-involving-killed-or-seriously-injured-persons), the Motor Vehicle Collisions dataset is introduced and organized to visualize the change in the annual number of traffic accidents with respect to their fatality and their location. Then, I discussed about the possible implications of these visualizations. Figure 1 showed that there was a descending trend of traffic accidents from 2006 to 2020. By Figure 2, I concluded that motor vehicle collisions are always more likely to occur at intersections. Thus, I brought out the Red Light Cameras dataset in Section \@ref(red-light-cameras) to see whether if the number of red light cameras has an effect on the number of traffic accidents with serious injuries and deaths. The result from the datasets indicates that there is no clear relationship between this two factors, suggesting that just by installing more red light cameras cannot prevent traffic accidents from happening at intersections. More implications and further discussions on this result is presented in Section \@ref(discussion).
+In exploring urban housing dynamics, we delve into the housing issues as reflected in the diverse datasets of Toronto's housing sector. This paper focuses in Toronto where it grappling with diverse housing challenges exacerbated by rapid urbanization and demographic shifts. With the data of rental housing transformation, affordable housing development, and the dynamics of social housing waitlists, this paper presents an analytical narrative on Toronto's evolving housing landscape. It examines how the city's policies and initiatives respond to the pressing needs for affordable and social housing, and discovering the challenges posed by urban growth, demographic changes, and economic pressures. 
 
 # Data
 
@@ -87,7 +85,7 @@ The number of red light camera instilled in Toronto from 2007 to 2020 is obtaine
 
 ```{r dadaextract1, echo=FALSE, message=FALSE, warning=FALSE}
 # Load red light camera data and clean
-red_light_camera <- read_csv(here::here("inputs/data/red_light_camera.csv")) %>%
+red_light_camera <- read_csv(here::here("toronto_housing.csv")) %>%
   clean_names() %>%
   select(activation_date, district) %>%
   drop_na(activation_date) %>%
