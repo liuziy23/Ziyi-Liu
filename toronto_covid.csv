@@ -1,6 +1,0 @@
-title,id,topics,civic_issues,publisher,excerpt,dataset_category,num_resources,formats,refresh_rate,last_refreshed
-COVID-19 Cases in Toronto,64b54586-6180-4485-83eb-81e8fae3b8fe,Health,NA,Toronto Public Health,"Line-listed report of COVID-19 cases among Toronto residents, including demographic, severity, geographical, and epidemiological variables.",Table,4,"CSV,JSON,XML",Bi-weekly,2024-01-17
-COVID-19 Testing Sites,cd616ce6-f7bb-424f-9412-da4eb87e342e,Health,NA,Toronto Public Health,"This dataset includes information about COVID-19 testing locations in Toronto. 
-",Map,13,"CSV,GPKG,SHP,GEOJSON",Daily,2023-10-05
-COVID-19 Immunization Clinics,d3f21fec-a80d-4f29-b298-1d0660a0e55d,Health,NA,Toronto Public Health,This dataset includes information about City-operated immunization clinics in Toronto. ,Map,9,"CSV,SHP,JSON,GEOJSON,GPKG",Daily,2023-02-15
-Agency Survey Results on COVID-19 Recovery And Rebuild,9d6c5c52-e359-47dc-99e7-870261ca03d9,"City government,Public safety",NA,Toronto Office of Recovery and Rebuild,This dataset includes survey results of the Agency Survey/Discussion Guide.  ,Document,2,"CSV,XLSX",As available,2020-10-14
