@@ -5,7 +5,7 @@
 # Date: 23 January 2024
 # Prerequisites: -
 
-#### Workspace setup ####
+#### Workspace setup ####0
 install.packages("opendatatoronto")
 install.packages("knitr")
 install.packages("janitor")
