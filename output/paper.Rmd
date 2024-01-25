@@ -4,12 +4,11 @@ author:
   - Ziyi Liu
 thanks: "Code and data are available at: https://github.com/liuziy23/Ziyi-Liu.git"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This study presents a comprehensive analysis of public health inspection data from Toronto's BodySafe program, aiming to evaluate the safety standards to personal service in the city. We examine the trends in public health standards including spas, salons and tatto parlors. We focuses on infraction categories, inspection outcomes, and the impact of enforcement actions. By investigating the correlation between service types, inspection results, and geographic distribution, this study provides insights of effectiveness of public health policies and the implementation. This paper not onlt focus on the effectiveness of BodySafe program but also investigating potential opportunities to enhance public health safety."
+abstract: "This study presents a comprehensive analysis of public health inspection data from Toronto's BodySafe program, aiming to evaluate the safety standards to personal service in the city. We examine the trends in public health standards including spas, salons and tatto parlors. We focuses on infraction categories, inspection outcomes. By investigating the correlation between service types, inspection results, and geographic distribution, this study provides insights of public health inspection results and variations in the frequency of inspections carried out over time at establishments regulated by Toronto's BodySafe program."
 output: pdf_document
 toc: TRUE
 bibliography: reference.bib
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 # Set up libraries
@@ -17,11 +16,12 @@ library(tidyverse)
 library(janitor)
 ```
 
-\newpage
 
 # Introduction
 
 This paper offers a comprehensive exploration into the Toronto's public health conditions through the BodySafe inspection data. We examine the hygiene and safety standards for several public services such as tattoo parlors, beauty salons, and spas[@citedata]. These public services are considerably popular among women and it may result in safety hazard such as skin penetration due to the chemical exposures[@cite1]. The primary goal of BodySafe is to minimize the risk of infections and promote safe practices in environment where the services involce close contact or shared equipment. Also, BodySafe plays a crucial role in protecting public and workers and maintaining consumer confidence in the safe environment across Toronto [@cite2].
+
+\newpage
 
 # Data
 
@@ -37,7 +37,7 @@ This dataset contains 3365 inspections of various establishments such as beauty 
 library(ggplot2)
 
 data <- utils::read.csv("toronto_bodysafe.csv")
-plot_data <- utils::as.data.frame(utils::table(data$srvType, data$insStatus))
+plot_data <- as.data.frame(table(data$srvType, data$insStatus))
 
 ggplot_plot <- ggplot(plot_data, aes(Var1, Freq, fill = Var2)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -49,6 +49,10 @@ ggplot_plot <- ggplot(plot_data, aes(Var1, Freq, fill = Var2)) +
 
 print(ggplot_plot)
 ```
+
+\newpage
+
+## The Number of Inspections Conducted Over Time in Toronto's BodySafe Establishments
 
 We can also explore the number of inspections conducted over time in Toronto's BodySafe establishments, and we can see the trends and patterns of the frequency of the inspections. 
 
@@ -80,9 +84,8 @@ The graph shows fluctuations in the number of inspections conducted over time in
 
 # Discussion
 
-
+The findings from analysis of Toronto's BodySafe inspection data provide several compelling insights into public health management in personal service settings. By increasing awareness among consumers about the standards they expect, we can drive demand for compliance and encourage a culture with safety and remain hygiene. These actions not only reinforce the importance of programs such as BodySafe in safeguarding public health but also suggest the services with further research and policy development to enhance their efficacy. Public health is still a challenging topic and personal service should be inspected and remain safe. 
 
 \newpage
 
 # References
-
