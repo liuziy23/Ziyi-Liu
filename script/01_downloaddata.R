@@ -25,7 +25,7 @@ toronto_bodysafe <-
   list_package_resources("c4052ff7-a09d-4eaf-84e6-6669519f413d") |>
   # Within that package, we are interested in the 2021 dataset
   filter(name == 
-           "bodysafe - 4326.csv") |>
+           "bodysafe li- 4326.csv") |>
   # Having reduced the dataset to one row we can get the resource
   get_resource()
 

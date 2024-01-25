@@ -22,7 +22,7 @@ library(janitor)
 
 # Introduction
 
-
+This paper offers a comprehensive exploration into the
 
 # Data
 
