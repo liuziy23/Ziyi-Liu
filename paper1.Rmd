@@ -4,11 +4,12 @@ author:
   - Ziyi Liu
 thanks: "Code and data are available at: https://github.com/liuziy23/Ziyi-Liu.git"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This study presents a comprehensive analysis of public health inspection data from Toronto's BodySafe program, aiming to evaluate the safety standards to personal service in the city. We examine the trends in public health standards including spas, salons and tatto parlors. We focuses on infraction categories, inspection outcomes. By investigating the correlation between service types, inspection results, and geographic distribution, this study provides insights of public health inspection results and variations in the frequency of inspections carried out over time at establishments regulated by Toronto's BodySafe program."
+abstract: "This study presents a comprehensive analysis of public health inspection data from Toronto's BodySafe program, aiming to evaluate the safety standards to personal service in the city. We examine the trends in public health standards including spas, salons and tatto parlors. We focuses on infraction categories, inspection outcomes, and the impact of enforcement actions. By investigating the correlation between service types, inspection results, and geographic distribution, this study provides insights of effectiveness of public health policies and the implementation. This paper not onlt focus on the effectiveness of BodySafe program but also investigating potential opportunities to enhance public health safety."
 output: pdf_document
 toc: TRUE
 bibliography: reference.bib
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 # Set up libraries
@@ -35,8 +36,8 @@ This dataset contains 3365 inspections of various establishments such as beauty 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)
 
-data <- read.csv("toronto_bodysafe.csv")
-plot_data <- base::as.data.frame(base::table(data$srvType, data$insStatus))
+data <- utils::read.csv("toronto_bodysafe.csv")
+plot_data <- utils::as.data.frame(utils::table(data$srvType, data$insStatus))
 
 ggplot_plot <- ggplot(plot_data, aes(Var1, Freq, fill = Var2)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -79,8 +80,9 @@ The graph shows fluctuations in the number of inspections conducted over time in
 
 # Discussion
 
-The findings from analysis of Toronto's BodySafe inspection data provide several compelling insights into public health management in personal service settings. By increasing awareness among consumers about the standards they expect, we can drive demand for compliance and encourage a culture with safety and remain hygiene. These vactions not onlt reinforce the importance of programs such as BodySafe in safeguarding public health but also suggest the services with futher research and policy development to enhance their efficacy. Public health is still a challenging topic and personal service should be inspected and remain safe. 
+
 
 \newpage
 
 # References
+
